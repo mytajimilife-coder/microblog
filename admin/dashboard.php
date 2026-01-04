@@ -269,7 +269,7 @@ $messageData = getAdminMessage();
         
         <main class="main-content">
             <div class="header">
-                <h2>こんにちは、<?php echo h($currentUser['display_name']); ?>さん！</h2>
+                <h2>管理者ダッシュボード <span style="font-size: 0.5em; color: #95a5a6; font-weight: normal;"><?php echo SITE_VERSION; ?></span></h2>
                 <a href="../" target="_blank" class="btn">🚀 サイトを確認</a>
             </div>
 

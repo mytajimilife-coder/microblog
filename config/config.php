@@ -16,6 +16,7 @@ if (defined('DEBUG_MODE') && DEBUG_MODE) {
 // サイトの基本設定
 define('SITE_NAME', 'Microblog');
 define('SITE_DESCRIPTION', '日本語専用ブログシステム');
+define('SITE_VERSION', 'Beta v1.0.0');
 define('BASE_URL', (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . dirname($_SERVER['PHP_SELF']));
 
 // ページ設定

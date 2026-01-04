@@ -465,7 +465,7 @@ function initializeDatabase($siteConfig) {
 <body>
     <div class="install-container">
         <div class="install-header">
-            <h1 class="install-title">Microblog インストール</h1>
+            <h1 class="install-title">Microblog インストール <span style="font-size: 0.5em; opacity: 0.7;">Beta v1.0.0</span></h1>
             <p class="install-subtitle">日本語専用ブログシステム インストールウィザード</p>
         </div>
         

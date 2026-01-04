@@ -184,7 +184,8 @@
     <div class="bg-glow"></div>
     <div class="container">
         <header>
-            <div class="logo">Microblog.</div>
+            <div class="logo">Microblog. <span style="font-size: 14px; opacity: 0.6; vertical-align: middle;">Beta
+                    v1.0.0</span></div>
             <nav>
                 <a href="#features">機能</a>
                 <a href="https://github.com/">GitHub</a>
@@ -193,19 +194,190 @@
         </header>
 
         <section class="hero">
-            <h1>至高の執筆体験を、<br>すべての人に。</h1>
-            <p>Microblogは、美しさと機能性を兼ね備えた日本語専用のモダンブログエンジンです。MySQL & PostgreSQLをサポートし、あなたの言葉を世界へ届けます。</p>
+            <h1>至高の執筆体験を、<br>ベータ版でも完璧に。</h1>
+            <p>Microblogは現在ベータテスト中です。美しさと機能性を兼ね備えたモダンブログエンジンを、いち早く体験してください。</p>
             <a href="#" class="cta-btn">無料で使ってみる</a>
 
             <div class="mockup">
                 <div class="mockup-inner">
-                    <!-- 이미지는 예시로 시스템 내 이미지를 활용하거나 추후 생성 가능 -->
-                    <div
-                        style="background:linear-gradient(45deg, #1e293b, #334155); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #94a3b8;">
-                        [ Microblog Dashboard Preview ]
+                    <!-- Dashboard Mockup UI -->
+                    <div class="db-mockup">
+                        <div class="db-sidebar">
+                            <div class="db-logo">MB</div>
+                            <div class="db-nav-item active"></div>
+                            <div class="db-nav-item"></div>
+                            <div class="db-nav-item"></div>
+                            <div class="db-nav-item"></div>
+                        </div>
+                        <div class="db-main">
+                            <div class="db-header">
+                                <div class="db-title">ダッシュボード</div>
+                                <div class="db-user"></div>
+                            </div>
+                            <div class="db-stats">
+                                <div class="db-stat-card">
+                                    <div class="db-label">記事数</div>
+                                    <div class="db-value">1,280</div>
+                                </div>
+                                <div class="db-stat-card">
+                                    <div class="db-label">PV (今月)</div>
+                                    <div class="db-value">45.2k</div>
+                                </div>
+                                <div class="db-stat-card">
+                                    <div class="db-label">収益</div>
+                                    <div class="db-value">¥320k</div>
+                                </div>
+                            </div>
+                            <div class="db-table-sect">
+                                <div class="db-label" style="margin-bottom:15px;">最近の投稿</div>
+                                <div class="db-row">
+                                    <div class="db-cell" style="width:60%">Microblog Betaのリリースについて</div>
+                                    <div class="db-cell" style="width:20%">公開済み</div>
+                                    <div class="db-cell" style="width:20%">2026/01/04</div>
+                                </div>
+                                <div class="db-row">
+                                    <div class="db-cell">新しいテーマ「Cute Pastel」が大人気</div>
+                                    <div class="db-cell">下書き</div>
+                                    <div class="db-cell">2026/01/03</div>
+                                </div>
+                                <div class="db-row">
+                                    <div class="db-cell">SEO最適化ガイド</div>
+                                    <div class="db-cell">公開済み</div>
+                                    <div class="db-cell">2026/01/02</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <style>
+                /* Mockup Specific Styles */
+                .db-mockup {
+                    display: flex;
+                    background: #0f172a;
+                    height: 100%;
+                    min-height: 400px;
+                    text-align: left;
+                    font-family: sans-serif;
+                }
+
+                .db-sidebar {
+                    width: 60px;
+                    background: #1e293b;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 20px 0;
+                    gap: 20px;
+                    border-right: 1px solid rgba(255, 255, 255, 0.05);
+                }
+
+                .db-logo {
+                    width: 32px;
+                    height: 32px;
+                    background: linear-gradient(45deg, var(--primary), var(--secondary));
+                    border-radius: 8px;
+                    font-size: 10px;
+                    font-weight: 900;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                }
+
+                .db-nav-item {
+                    width: 24px;
+                    height: 2px;
+                    background: #475569;
+                    border-radius: 2px;
+                }
+
+                .db-nav-item.active {
+                    background: var(--primary);
+                    box-shadow: 0 0 10px var(--primary);
+                }
+
+                .db-main {
+                    flex: 1;
+                    padding: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                .db-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .db-title {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: white;
+                }
+
+                .db-user {
+                    width: 32px;
+                    height: 32px;
+                    background: #334155;
+                    border-radius: 50%;
+                }
+
+                .db-stats {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 20px;
+                }
+
+                .db-stat-card {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 15px;
+                    border-radius: 12px;
+                }
+
+                .db-label {
+                    font-size: 11px;
+                    color: #94a3b8;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+
+                .db-value {
+                    font-size: 20px;
+                    font-weight: 800;
+                    color: white;
+                    margin-top: 5px;
+                }
+
+                .db-table-sect {
+                    background: rgba(255, 255, 255, 0.03);
+                    border-radius: 12px;
+                    padding: 20px;
+                    flex: 1;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                }
+
+                .db-row {
+                    display: flex;
+                    padding: 12px 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    font-size: 13px;
+                    color: #cbd5e1;
+                }
+
+                .db-row:last-child {
+                    border: none;
+                }
+
+                .db-cell {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            </style>
         </section>
 
         <section class="features" id="features">
