@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog - 至高の執筆体験をあなたに</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', "Hiragino Sans", sans-serif;
+            background: var(--dark);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15), transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 99px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mockup */
+        .mockup {
+            margin-top: 60px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mockup-inner {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .mockup img {
+            width: 100%;
+            display: block;
+            filter: brightness(0.9);
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+
+        .feat-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+        }
+
+        .feat-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .feat-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feat-card p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="container">
+        <header>
+            <div class="logo">Microblog.</div>
+            <nav>
+                <a href="#features">機能</a>
+                <a href="https://github.com/">GitHub</a>
+                <a href="#">ドキュメント</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>至高の執筆体験を、<br>すべての人に。</h1>
+            <p>Microblogは、美しさと機能性を兼ね備えた日本語専用のモダンブログエンジンです。MySQL & PostgreSQLをサポートし、あなたの言葉を世界へ届けます。</p>
+            <a href="#" class="cta-btn">無料で使ってみる</a>
+
+            <div class="mockup">
+                <div class="mockup-inner">
+                    <!-- 이미지는 예시로 시스템 내 이미지를 활용하거나 추후 생성 가능 -->
+                    <div
+                        style="background:linear-gradient(45deg, #1e293b, #334155); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #94a3b8;">
+                        [ Microblog Dashboard Preview ]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="feat-card">
+                <div class="feat-icon">🚀</div>
+                <h3>極上のパフォーマンス</h3>
+                <p>高度なキャッシュシステムと画像自動最適化により、瞬時にページを表示します。SEOスコアも最高峰を目指せます。</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">🛡️</div>
+                <h3>鉄壁のセキュリティー</h3>
+                <p>IPブロック、ブルートフォース保護、活動ログ監視機能を標準搭載。あなたのサイトを24時間守り抜きます。</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">🧩</div>
+                <h3>REST API & 拡張性</h3>
+                <p>Headless CMSとしても利用可能。REST APIを通じてモバイルアプリや外部サービスとシームレスに連携できます。</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">🎨</div>
+                <h3>テーマ & ダークモード</h3>
+                <p>システム連動のダークモード、洗練された複数のテーマを管理画面からワンクリックで切り替えられます。</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">✍️</div>
+                <h3>執筆に集中できる環境</h3>
+                <p>Markdown、自動保存、投稿予約、自動目次生成。執筆者の「欲しい」がすべてここに詰まっています。</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">📊</div>
+                <h3>直感的な管理</h3>
+                <p>専門知識不要。すべてはGUIで完結します。お問い合わせ管理やアクセス分析も一目瞭然です。</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Microblog. Designed for premium writing experience.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
