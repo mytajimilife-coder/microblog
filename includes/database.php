@@ -205,6 +205,7 @@ class Database {
         require_once __DIR__ . '/post_meta.php';
         require_once __DIR__ . '/api_manager.php';
         require_once __DIR__ . '/security/ip_manager.php';
+        require_once __DIR__ . '/models/subscriber.php';
         
         MediaLibrary::createTable($this);
         AutoSave::createTable($this);
@@ -213,6 +214,7 @@ class Database {
         PostMeta::createTable($this);
         APIManager::createTable($this);
         IPManager::createTable($this);
+        Subscriber::createTable($this);
     }
     
     /**

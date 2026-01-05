@@ -22,6 +22,15 @@ $draftPosts = $postModel->count(['status' => 'draft']);
 $totalCategories = $categoryModel->count();
 $totalUsers = $userModel->count();
 
+// コメント・購読者数
+require_once '../includes/models/comment.php';
+require_once '../includes/models/subscriber.php';
+$commentModel = new Comment($pdo);
+$subscriberModel = new Subscriber($pdo);
+$totalComments = $commentModel->count();
+$totalSubscribers = count($subscriberModel->getAll());
+$unreadComments = $commentModel->countPending();
+
 // 追加機能の通知取得
 require_once '../includes/admin_notifications.php';
 $notifications = new AdminNotifications($pdo);
@@ -253,6 +262,7 @@ $messageData = getAdminMessage();
                     <li class="nav-item"><a href="index.php?action=posts" class="nav-link">📝 投稿管理</a></li>
                     <li class="nav-item"><a href="index.php?action=categories" class="nav-link">📁 カテゴリー</a></li>
                     <li class="nav-item"><a href="index.php?action=settings" class="nav-link">⚙️ 総合設定</a></li>
+                    <li class="nav-item"><a href="index.php?action=comments" class="nav-link">💬 コメント管理</a></li>
                     <li class="nav-item"><a href="index.php?action=themes" class="nav-link">🎨 テーマ管理</a></li>
                     <li class="nav-item"><a href="index.php?action=firewall" class="nav-link">🛡️ セキュリティ</a></li>
                     <li class="nav-item">
@@ -261,6 +271,7 @@ $messageData = getAdminMessage();
                             <?php if ($globalCount > 0): ?><span class="nav-badge"><?php echo $globalCount; ?></span><?php endif; ?>
                         </a>
                     </li>
+                    <li class="nav-item"><a href="index.php?action=subscribers" class="nav-link">👥 購読者管理</a></li>
                     <hr style="border: 0; border-top: 1px solid #34495e; margin: 10px 0;">
                     <li class="nav-item"><a href="index.php?action=logout" class="nav-link">🚪 ログアウト</a></li>
                 </ul>
@@ -299,7 +310,17 @@ $messageData = getAdminMessage();
                     <div class="stat-title">カテゴリー</div>
                     <div class="stat-number"><?php echo $totalCategories; ?></div>
                 </div>
-                <!-- 閲覧数は統計機能から取得可能 -->
+                <div class="stat-card">
+                    <div class="stat-title">コメント</div>
+                    <div class="stat-number"><?php echo $totalComments; ?></div>
+                    <?php if ($unreadComments > 0): ?>
+                        <div style="font-size: 12px; color: #e74c3c;">(未承認: <?php echo $unreadComments; ?>)</div>
+                    <?php endif; ?>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">購読者</div>
+                    <div class="stat-number"><?php echo $totalSubscribers; ?></div>
+                </div>
             </div>
             
             <div class="content-section">

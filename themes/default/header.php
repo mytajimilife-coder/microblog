@@ -7,6 +7,22 @@
     <meta name="description" content="<?php echo h($seoDescription ?? $siteInfo['description']); ?>">
     <meta name="keywords" content="ブログ, blog, microblog, 日本语, 日本語">
     
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4facfe">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+
+    <?php if (isset($action) && $action === 'post'): ?>
+        <?php echo UXHelper::getReadingProgressAssets(); ?>
+    <?php endif; ?>
+    
     <!-- Open Graph Meta Tags -->
     <?php if (isset($seoImage)): ?>
         <meta property="og:image" content="<?php echo h($seoImage); ?>">
@@ -267,6 +283,45 @@
             border-bottom: none;
         }
         
+        /* Comment Widget */
+        .comment-widget-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comment-widget-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+
+        .comment-widget-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-widget-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            display: block;
+        }
+
+        .comment-widget-item a:hover .post-title-mini {
+            color: #3498db;
+        }
+
+        .post-title-mini {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .comment-excerpt-mini {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        
         .category-item a {
             color: #2c3e50;
             text-decoration: none;
@@ -393,6 +448,7 @@
                         <li><a href="<?php echo url(); ?>">ホーム</a></li>
                         <li><a href="<?php echo url('categories'); ?>">カテゴリー</a></li>
                         <li><a href="<?php echo url('tags'); ?>">タグ</a></li>
+                        <li><a href="<?php echo url('contact'); ?>">お問い合わせ</a></li>
                         <li><a href="<?php echo url('admin'); ?>">管理</a></li>
                     </ul>
                 </nav>

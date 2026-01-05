@@ -42,6 +42,9 @@ switch ($action) {
     case 'settings':
         include 'settings.php';
         break;
+    case 'comments':
+        include 'comments.php';
+        break;
     case 'firewall':
         include 'firewall.php';
         break;
@@ -53,6 +56,9 @@ switch ($action) {
         break;
     case 'themes':
         include 'themes.php';
+        break;
+    case 'subscribers':
+        include 'subscribers.php';
         break;
     case 'logout':
         logout();

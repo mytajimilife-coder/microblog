@@ -11,7 +11,10 @@
                 <article class="post-item">
                     <h2 class="post-title">
                         <a href="<?php echo url('?action=post&id=' . $post['id']); ?>">
-                            <?php echo h($post['title']); ?>
+                            <?php 
+                                $title = h($post['title']);
+                                echo UXHelper::highlightSearchTerms($title, $query); 
+                            ?>
                         </a>
                     </h2>
                     
@@ -27,7 +30,8 @@
                     <div class="post-excerpt">
                         <?php 
                         $excerpt = $post['excerpt'] ?: HTMLHelper::excerpt($post['content'], 200);
-                        echo h($excerpt); 
+                        $excerpt = h($excerpt);
+                        echo UXHelper::highlightSearchTerms($excerpt, $query); 
                         ?>
                     </div>
                     
@@ -140,5 +144,13 @@
 .no-results p {
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.search-highlight {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0 2px;
+    font-weight: bold;
+    border-radius: 2px;
 }
 </style>

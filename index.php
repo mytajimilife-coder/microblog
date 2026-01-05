@@ -15,6 +15,10 @@ require_once 'includes/hooks.php';
 require_once 'includes/site_settings.php';
 require_once 'includes/cache.php';
 require_once 'includes/security/ip_manager.php';
+require_once 'includes/ux_helper.php';
+require_once 'includes/sidebar_helper.php';
+require_once 'includes/models/comment.php';
+require_once 'includes/contact_system.php';
 
 // データベース接続
 $db = new Database();
@@ -80,6 +84,28 @@ switch ($action) {
         $query = $_GET['q'] ?? '';
         $controller = new SearchController($pdo);
         $controller->search($query, $page);
+        break;
+
+    case 'subscribe':
+        require_once 'includes/controllers/newsletter_controller.php';
+        $controller = new NewsletterController($pdo);
+        $controller->subscribe();
+        break;
+
+    case 'comment':
+        require_once 'includes/controllers/comment_controller.php';
+        $controller = new CommentController($pdo);
+        $controller->submit();
+        break;
+        
+    case 'contact':
+        require_once 'includes/controllers/contact_controller.php';
+        $controller = new ContactController($pdo);
+        if (isset($_GET['submit'])) {
+            $controller->submit();
+        } else {
+            $controller->index();
+        }
         break;
         
     case 'admin':

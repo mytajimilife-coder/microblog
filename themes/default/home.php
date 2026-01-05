@@ -35,7 +35,8 @@
                     <a href="<?php echo url('post/' . $post['slug']); ?>">
                         <img src="<?php echo h($post['featured_image']); ?>" 
                              alt="<?php echo h($post['title']); ?>" 
-                             class="featured-image">
+                             class="featured-image"
+                             loading="lazy">
                     </a>
                 </div>
             <?php endif; ?>

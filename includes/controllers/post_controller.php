@@ -10,6 +10,7 @@ class PostController {
     private $categoryModel;
     private $tagModel;
     private $settingModel;
+    private $commentModel;
     
     public function __construct($pdo) {
         $this->db = $pdo;
@@ -17,6 +18,7 @@ class PostController {
         $this->categoryModel = new Category($pdo);
         $this->tagModel = new Tag($pdo);
         $this->settingModel = new Setting($pdo);
+        $this->commentModel = new Comment($pdo);
     }
     
     /**
@@ -49,6 +51,10 @@ class PostController {
             // 投稿のタグ取得
             $tags = $this->getPostTags($post['id']);
             
+            // コメント取得
+            $comments = $this->commentModel->getByPost($post['id']);
+            $commentCount = $this->commentModel->countByPost($post['id']);
+            
             // 設定取得
             $settings = $this->settingModel->getMultiple([
                 'site_name', 'site_description'
@@ -64,17 +70,25 @@ class PostController {
             $seoDescription = HTMLHelper::excerpt($post['content'], 160);
             $seoImage = $post['featured_image'] ? url($post['featured_image']) : null;
             
+            // パンくずリスト
+            require_once 'includes/breadcrumb.php';
+            $breadcrumb = new Breadcrumb();
+            $breadcrumb->fromPost($post, $categories);
+            
             // ビュー出力
             $this->render('post', [
                 'post' => $post,
                 'categories' => $categories,
                 'tags' => $tags,
+                'comments' => $comments,
+                'commentCount' => $commentCount,
                 'relatedPosts' => $relatedPosts,
                 'siteInfo' => $siteInfo,
                 'seoTitle' => $seoTitle,
                 'seoDescription' => $seoDescription,
                 'seoImage' => $seoImage,
-                'title' => $post['title']
+                'title' => $post['title'],
+                'breadcrumb' => $breadcrumb->render()
             ]);
             
         } catch (Exception $e) {
