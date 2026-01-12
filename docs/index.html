@@ -19,14 +19,14 @@
     <meta property="og:url" content="https://mytajimilife-coder.github.io/microblog/">
     <meta property="og:title" content="Microblog - 至高の執筆体験をあなたに">
     <meta property="og:description" content="日本語環境に最適化された、美しく高性能なPHPブログエンジン。SEO、PWA、API、セキュリティを完備。">
-    <meta property="og:image" content="https://mytajimilife-coder.github.io/microblog/og-image.png">
+    <meta property="og:image" content="https://mytajimilife-coder.github.io/microblog/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://mytajimilife-coder.github.io/microblog/">
     <meta property="twitter:title" content="Microblog - 至高の執筆体験をあなたに">
     <meta property="twitter:description" content="日本語環境に最適化された、美しく高性能なPHPブログエンジン。SEO、PWA、API、セキュリティを完備。">
-    <meta property="twitter:image" content="https://mytajimilife-coder.github.io/microblog/og-image.png">
+    <meta property="twitter:image" content="https://mytajimilife-coder.github.io/microblog/logo.png">
 
     <!-- Canonical Link -->
     <link rel="canonical" href="https://mytajimilife-coder.github.io/microblog/">
@@ -78,8 +78,21 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 24px;
             font-weight: 800;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-text {
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -102,6 +115,27 @@
         .hero {
             padding: 120px 0 80px;
             text-align: center;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .hero h1 {
@@ -209,19 +243,24 @@
     <div class="bg-glow"></div>
     <div class="container">
         <header>
-            <div class="logo">Microblog. <span style="font-size: 14px; opacity: 0.6; vertical-align: middle;">Beta
-                    v1.0.0</span></div>
+            <div class="logo">
+                <img src="logo.png" alt="Microblog Logo">
+                <div class="logo-text">Microblog. <span
+                        style="font-size: 14px; opacity: 0.6; vertical-align: middle;">Beta
+                        v1.0.0</span></div>
+            </div>
             <nav>
                 <a href="#features">機能</a>
-                <a href="https://github.com/">GitHub</a>
-                <a href="#">ドキュメント</a>
+                <a href="https://github.com/mytajimilife-coder/microblog">GitHub</a>
+                <a href="#docs">ドキュメント</a>
             </nav>
         </header>
 
         <section class="hero">
+            <img src="logo.png" alt="Microblog Logo" class="hero-logo">
             <h1>至高の執筆体験を、<br>ベータ版でも完璧に。</h1>
             <p>Microblogは現在ベータテスト中です。美しさと機能性を兼ね備えたモダンブログエンジンを、いち早く体験してください。</p>
-            <a href="#" class="cta-btn">無料で使ってみる</a>
+            <a href="https://github.com/mytajimilife-coder/microblog" class="cta-btn">無料で使ってみる</a>
 
             <div class="mockup">
                 <div class="mockup-inner">
@@ -688,7 +727,18 @@
         </section>
 
         <footer>
-            <p>&copy; 2026 Microblog. Designed for premium writing experience.</p>
+            <p>&copy; 2026 TajimiOZ. Licensed under <a
+                    href="https://github.com/mytajimilife-coder/microblog/blob/main/LICENSE"
+                    style="color: var(--primary); text-decoration: none;">MIT License</a>.</p>
+            <p style="margin-top: 10px; font-size: 13px;">
+                <a href="https://github.com/mytajimilife-coder/microblog"
+                    style="color: #94a3b8; text-decoration: none; margin: 0 10px;">GitHub</a> •
+                <a href="https://github.com/mytajimilife-coder/microblog/issues"
+                    style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Issues</a> •
+                <a href="https://github.com/mytajimilife-coder/microblog#readme"
+                    style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Documentation</a>
+            </p>
+            <p style="margin-top: 15px; opacity: 0.6;">Made with ❤️ by TajimiOZ</p>
         </footer>
     </div>
 </body>
