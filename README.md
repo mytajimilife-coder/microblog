@@ -132,15 +132,6 @@ Microblogは以下の言語に対応しています：
 
 ---
 
-## 📸 スクリーンショット
-
-<div align="center">
-  <img src="docs/screenshot-dashboard.png" alt="Dashboard" width="800"/>
-  <p><em>プロフェッショナルな管理画面</em></p>
-</div>
-
----
-
 ## 🤝 貢献
 
 貢献を歓迎します！以下の方法で参加できます：
